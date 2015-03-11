@@ -1,0 +1,38 @@
+{
+  "name": "alioss",
+  "version": "1.0.0",
+  "private": true,
+  "description": "阿里云 OSS 命令行",
+  "scripts": {},
+  "preferGlobal": false,
+  "bin": {
+    "alioss": "./cli/alioss"
+  },
+  "main": "index.js",
+  "keywords": [
+    "aliyun",
+    "oss",
+    "cloudcome",
+    "ydr.me"
+  ],
+  "author": {
+    "name": "cloudcome",
+    "email": "cloudcome@163.com",
+    "url": "http://ydr.me"
+  },
+  "homepage": "https://github.com/cloudcome/nodejs-alioss",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/cloudcome/nodejs-alioss"
+  },
+  "bugs": {
+    "url": "https://github.com/cloudcome/nodejs-alioss/issues"
+  },
+  "dependencies": {
+    "colors": "^1.0.3",
+    "fs-extra": "^0.16.5",
+    "ydr-util": "^2.0.2"
+  },
+  "devDependencies": {},
+  "licenses": "MIT"
+}
