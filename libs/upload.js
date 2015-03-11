@@ -14,10 +14,12 @@ var log = require('./log.js');
 var path = require('path');
 var xmlParse = require('xml2js').parseString;
 var REG_TITLE = /<title>([\s\S]*?)<\/title>/;
+var REG_SPLIT = /\/([^\/]*)/g;
 
 
 /**
  * 上传文件
+ * @param dir {String} 执行路径
  * @param options {Object} 配置
  * @param file {String} 待上传文件的绝对路径
  * @param callback {Function} 上传完毕回调
@@ -61,7 +63,7 @@ module.exports = function upload(dir, options, file, callback) {
 
             if (err) {
                 log('upload file', file, 'error');
-                log('upload file', err.message, 'error');
+                log('upload response', err.message, 'error');
                 return process.exit();
             }
         });

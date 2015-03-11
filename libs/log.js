@@ -75,7 +75,6 @@ module.exports = function log(isTextAlignLeft, event, message, type) {
 
     var color = map[type] || "white";
 
-
     console.log(colors.yellow(event), colors.cyan('=>'), _splitColors(color, message));
 };
 
