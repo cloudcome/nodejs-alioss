@@ -48,6 +48,8 @@ function upload() {
     //return;
 
 
+    var time = Date.now();
+
     howdo
         // 1. 找到要进行上传的文件列表
         .task(function (next) {
@@ -55,7 +57,6 @@ function upload() {
         })
         // 2. 上传操作
         .task(function (next, groups, len) {
-            console.time(1);
             bar = new ProgressBar('[:bar]  :current/' + len + '  剩余：:etas', {
                 complete: '=',
                 incomplete: ' ',
@@ -76,7 +77,7 @@ function upload() {
             }).follow(next);
         })
         .follow(function () {
-            console.timeEnd(1);
             log('upload', 'upload all files', 'success');
+            log('past', (Date.now() - time) + 'ms', 'success');
         });
 }

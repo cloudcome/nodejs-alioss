@@ -1,7 +1,6 @@
 {
   "name": "alioss",
-  "version": "1.0.0",
-  "private": true,
+  "version": "1.0.1",
   "description": "阿里云 OSS 命令行",
   "scripts": {},
   "preferGlobal": true,
