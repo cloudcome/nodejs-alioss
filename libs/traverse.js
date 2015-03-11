@@ -39,17 +39,12 @@ module.exports = function traverse(dir, options, callback) {
         });
     }).together(function (err) {
         var groups = [];
-        var temp = [];
+        var len = files.length;
 
-        files.forEach(function (file) {
-            if(temp.length < options.parallel){
-                temp.push(file);
-            }else{
-                groups.push(temp);
-                temp = [];
-            }
-        });
+        while (files.length) {
+            groups.push(files.splice(0, options.parallel));
+        }
 
-        callback(err, groups, files.length);
+        callback(err, groups, len);
     });
 };

@@ -76,7 +76,6 @@ function upload() {
             }).follow(next);
         })
         .follow(function () {
-            bar.tick(1);
             console.timeEnd(1);
             log('upload', 'upload all files', 'success');
         });
