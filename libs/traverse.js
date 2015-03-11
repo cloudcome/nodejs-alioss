@@ -26,7 +26,7 @@ module.exports = function traverse(dir, options, callback) {
     var files = [];
 
     howdo.each(options.upload, function (index, gb, done) {
-        gb = path.join(dir, gb);
+        gb = path.join(dir, options.src, gb);
         glob(gb, {dot: false, nodir: true}, function (err, files2) {
             if (err) {
                 log('glob files', gb, 'error');
