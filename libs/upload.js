@@ -23,11 +23,13 @@ var REG_TITLE = /<title>([\s\S]*?)<\/title>/;
  * @param callback {Function} 上传完毕回调
  */
 module.exports = function upload(dir, options, file, callback) {
+    dir = path.join(dir, options.src);
+
     var extname = path.extname(file);
     var headers = {
         'content-type': mime.get(extname)
     };
-    var object = options.dirname + path.relative(dir, file);
+    var object = options.dest + path.relative(dir, file);
     var remote = 'http://' + options.bucket + '.' + options.host + (object ? object : '');
 
     request.put({

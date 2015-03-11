@@ -16,8 +16,9 @@ var json = {
     host: 'oss-cn-hangzhou.aliyuncs.com',
     // 缓存期限 1年
     cacheControl: 'max-age=315360000',
+    src: './',
     upload: ['./**/*.*'],
-    dirname: '/test/',
+    dest: '/test/',
     // 并行数量
     parallel: 10
 };
