@@ -20,7 +20,7 @@ var crypto = require('crypto');
  * @returns {Object}
  */
 module.exports = function sign(options, method, object, headers) {
-    var options = dato.extend({}, defaults, {
+    var options = dato.extend({}, options, {
         method: method,
         object: object
     });

@@ -8,25 +8,61 @@
 
 var mime = require('ydr-util').mime;
 var request = require('ydr-util').request;
+var typeis = require('ydr-util').typeis;
 var sign = require('./sign.js');
+var log = require('./log.js');
+var path = require('path');
+var xmlParse = require('xml2js').parseString;
+var REG_TITLE = /<title>([\s\S]*?)<\/title>/;
 
 
 /**
  * 上传文件
+ * @param options {Object} 配置
  * @param file {String} 待上传文件的绝对路径
+ * @param callback {Function} 上传完毕回调
  */
-module.exports = function upload(options, file, callback) {
+module.exports = function upload(dir, options, file, callback) {
     var extname = path.extname(file);
     var headers = {
         'content-type': mime.get(extname)
     };
-    var object = '/test/' + path.relative(__dirname, file);
+    var object = options.dirname + path.relative(dir, file);
     var remote = 'http://' + options.bucket + '.' + options.host + (object ? object : '');
 
     request.put({
         url: remote,
-        headers: sign('PUT', object, headers),
+        headers: sign(options, 'PUT', object, headers),
         file: file
-    }, callback);
+    }, function (err, body, res) {
+        if (err) {
+            log('upload file', file, 'error');
+            log('upload file', err.message, 'error');
+            return process.exit();
+        }
+
+        if (res.statusCode === 200) {
+            return callback();
+        }
+
+        xmlParse(body, function (err, ret) {
+            var msg = '';
+
+            if (err) {
+                msg = (body.match(REG_TITLE) || ['', ''])[1];
+                err = new Error(msg || 'parse upload result error');
+            } else {
+                msg = ret && ret.Error && ret.Error.Message;
+                msg = typeis(msg) === 'array' ? msg[0] : msg;
+                err = new Error(msg);
+            }
+
+            if (err) {
+                log('upload file', file, 'error');
+                log('upload file', err.message, 'error');
+                return process.exit();
+            }
+        });
+    });
 };
 

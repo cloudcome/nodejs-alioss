@@ -16,7 +16,10 @@ var json = {
     host: 'oss-cn-hangzhou.aliyuncs.com',
     // 缓存期限 1年
     cacheControl: 'max-age=315360000',
-    upload: ['./**/*.*']
+    upload: ['./**/*.*'],
+    dirname: '/test/',
+    // 并行数量
+    parallel: 10
 };
 
 module.exports = function (dir) {
@@ -25,7 +28,7 @@ module.exports = function (dir) {
         if(err){
             log('write file', file, 'error');
             log('write file', err.message, 'error');
-            return;
+            return process.exit();
         }
 
         log('write file', file, 'success');

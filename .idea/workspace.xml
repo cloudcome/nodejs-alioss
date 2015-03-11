@@ -2,15 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="748d7999-4f93-4571-9245-f0100676cc32" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/cli/alioss.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/config.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/json.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/log.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/package.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/sign.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/traverse.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/upload.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/nodejs-alioss.iml" afterPath="$PROJECT_DIR$/.idea/nodejs-alioss.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/libs/parse-config.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/readme.md" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/libs/config.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/libs/json.js" afterPath="$PROJECT_DIR$/libs/build-json.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/cli/alioss.js" afterPath="$PROJECT_DIR$/cli/alioss.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/package.json" afterPath="$PROJECT_DIR$/package.json" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/sign.js" afterPath="$PROJECT_DIR$/libs/sign.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/traverse.js" afterPath="$PROJECT_DIR$/libs/traverse.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/libs/upload.js" afterPath="$PROJECT_DIR$/libs/upload.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="nodejs-alioss.iws" />
@@ -36,31 +36,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="json.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/json.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="646">
-              <caret line="28" column="9" selection-start-line="24" selection-start-column="8" selection-end-line="28" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="alioss.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="alioss.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/cli/alioss.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.54567903" vertical-offset="34" max-vertical-offset="510">
-              <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="879" max-vertical-offset="1496">
+              <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="config.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/libs/config.js">
+      <file leaf-file-name="alioss.json" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/alioss.json">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-              <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+            <state vertical-scroll-proportion="0.31641287" vertical-offset="0" max-vertical-offset="591">
+              <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -75,15 +65,18 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/.gitignore" />
-        <option value="$PROJECT_DIR$/package.json" />
         <option value="$PROJECT_DIR$/cli/alioss" />
-        <option value="$PROJECT_DIR$/libs/sign.js" />
-        <option value="$PROJECT_DIR$/libs/traverse.js" />
-        <option value="$PROJECT_DIR$/libs/upload.js" />
         <option value="$PROJECT_DIR$/libs/init.js" />
-        <option value="$PROJECT_DIR$/libs/json.js" />
         <option value="$PROJECT_DIR$/libs/config.js" />
+        <option value="$PROJECT_DIR$/package.json" />
+        <option value="$PROJECT_DIR$/libs/json.js" />
+        <option value="$PROJECT_DIR$/libs/sign.js" />
+        <option value="$PROJECT_DIR$/libs/upload.js" />
+        <option value="$PROJECT_DIR$/libs/traverse.js" />
+        <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/cli/alioss.js" />
+        <option value="$PROJECT_DIR$/libs/build-json.js" />
+        <option value="$PROJECT_DIR$/alioss.json" />
       </list>
     </option>
   </component>
@@ -187,6 +180,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$" />
       <recent name="$PROJECT_DIR$/libs" />
     </key>
   </component>
@@ -298,12 +292,19 @@
       <created>1426067024190</created>
       <option name="number" value="Default" />
       <updated>1426067024190</updated>
-      <workItem from="1426067024818" duration="2456000" />
+      <workItem from="1426067024818" duration="8855000" />
     </task>
+    <task id="LOCAL-00001" summary="alioss">
+      <created>1426069971912</created>
+      <option name="number" value="00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1426069971912</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2456000" />
+    <option name="totallyTimeSpent" value="8855000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="23" width="1280" height="737" extended-state="6" />
@@ -312,7 +313,7 @@
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32868218" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32868218" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -354,7 +355,8 @@
       <TodoPanelSettings />
     </option>
     <MESSAGE value="ignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="ignore" />
+    <MESSAGE value="alioss" />
+    <option name="LAST_COMMIT_MESSAGE" value="alioss" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager />
@@ -369,42 +371,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/package.json">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.7478849" vertical-offset="68" max-vertical-offset="714">
-          <caret line="30" column="19" selection-start-line="30" selection-start-column="19" selection-end-line="30" selection-end-column="19" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/libs/log.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-3.1555555" vertical-offset="1414" max-vertical-offset="1972">
           <caret line="12" column="11" selection-start-line="12" selection-start-column="11" selection-end-line="12" selection-end-column="11" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/upload.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.24797407" vertical-offset="0" max-vertical-offset="617">
-          <caret line="13" column="3" selection-start-line="13" selection-start-column="3" selection-end-line="13" selection-end-column="3" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/traverse.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.16531605" vertical-offset="0" max-vertical-offset="629">
-          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/libs/sign.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="1.5153971" vertical-offset="0" max-vertical-offset="1054">
-          <caret line="59" column="2" selection-start-line="59" selection-start-column="2" selection-end-line="59" selection-end-column="2" />
           <folding />
         </state>
       </provider>
@@ -425,34 +395,103 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/alioss.json">
+    <entry file="file://$PROJECT_DIR$/libs/parse-config.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.40369394" vertical-offset="0" max-vertical-offset="379">
-          <caret line="9" column="1" selection-start-line="9" selection-start-column="1" selection-end-line="9" selection-end-column="1" />
+        <state vertical-scroll-proportion="0.5802469" vertical-offset="173" max-vertical-offset="646">
+          <caret line="28" column="0" selection-start-line="28" selection-start-column="0" selection-end-line="28" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/json.js">
+    <entry file="file://$PROJECT_DIR$/node_modules/progress/lib/node-progress.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="221" max-vertical-offset="646">
-          <caret line="28" column="9" selection-start-line="24" selection-start-column="8" selection-end-line="28" selection-end-column="9" />
+        <state vertical-scroll-proportion="-0.002469136" vertical-offset="1191" max-vertical-offset="3094">
+          <caret line="74" column="49" selection-start-line="74" selection-start-column="43" selection-end-line="74" selection-end-column="49" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/libs/config.js">
+    <entry file="file://$PROJECT_DIR$/libs/sign.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="459">
-          <caret line="22" column="9" selection-start-line="22" selection-start-column="9" selection-end-line="22" selection-end-column="9" />
+        <state vertical-scroll-proportion="0.11851852" vertical-offset="292" max-vertical-offset="1054">
+          <caret line="24" column="22" selection-start-line="24" selection-start-column="22" selection-end-line="24" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/js/erp/smoa/forum.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16790123" vertical-offset="0" max-vertical-offset="3672">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/ydr-util/libs/typeis.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.47163695" vertical-offset="4452" max-vertical-offset="5304">
+          <caret line="279" column="12" selection-start-line="279" selection-start-column="8" selection-end-line="279" selection-end-column="12" />
+          <folding>
+            <element signature="n#!!doc" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/package.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.16582064" vertical-offset="225" max-vertical-offset="816">
+          <caret line="19" column="33" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="33" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/traverse.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.83468395" vertical-offset="301" max-vertical-offset="969">
+          <caret line="52" column="42" selection-start-line="52" selection-start-column="42" selection-end-line="52" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/readme.md">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4923339" vertical-offset="0" max-vertical-offset="587">
+          <caret line="17" column="13" selection-start-line="17" selection-start-column="13" selection-end-line="17" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="MarkdownPreviewEditor">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/upload.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29821718" vertical-offset="241" max-vertical-offset="1190">
+          <caret line="29" column="58" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/libs/build-json.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44084278" vertical-offset="17" max-vertical-offset="697">
+          <caret line="21" column="16" selection-start-line="21" selection-start-column="16" selection-end-line="21" selection-end-column="16" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/cli/alioss.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.54567903" vertical-offset="34" max-vertical-offset="510">
-          <caret line="15" column="0" selection-start-line="15" selection-start-column="0" selection-end-line="15" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="879" max-vertical-offset="1496">
+          <caret line="73" column="34" selection-start-line="73" selection-start-column="34" selection-end-line="73" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/alioss.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.31641287" vertical-offset="0" max-vertical-offset="591">
+          <caret line="11" column="1" selection-start-line="11" selection-start-column="1" selection-end-line="11" selection-end-column="1" />
           <folding />
         </state>
       </provider>

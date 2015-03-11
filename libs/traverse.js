@@ -7,29 +7,49 @@
 'use strict';
 
 var fs = require('fs');
+var path = require('path');
+var glob = require('glob');
+var howdo = require('howdo');
 var typeis = require('ydr-util').typeis;
+var log = require('./log.js');
+var REG_IGNORE = /^\./;
+
 
 /**
  * 遍历目录
  * @param dir {String} 绝对目录
+ * @param options {Object} 配置
+ * @param callback {Function} 配置
  * @returns {Array}
  */
-module.exports = function traverse(dir) {
+module.exports = function traverse(dir, options, callback) {
     var files = [];
 
-    function recursion(dir) {
-        fs.readdirSync(dir).forEach(function (f) {
-            f = path.join(dir, f);
+    howdo.each(options.upload, function (index, gb, done) {
+        gb = path.join(dir, gb);
+        glob(gb, {dot: false, nodir: true}, function (err, files2) {
+            if (err) {
+                log('glob files', gb, 'error');
+                log('glob files', err.message, 'error');
+                return process.exit();
+            }
 
-            if (typeis.file(f)) {
-                files.push(f);
-            } else {
-                recursion(f);
+            files = files.concat(files2);
+            done(err);
+        });
+    }).together(function (err) {
+        var groups = [];
+        var temp = [];
+
+        files.forEach(function (file) {
+            if(temp.length < options.parallel){
+                temp.push(file);
+            }else{
+                groups.push(temp);
+                temp = [];
             }
         });
-    }
 
-    recursion(dir);
-
-    return files;
+        callback(err, groups, files.length);
+    });
 };
