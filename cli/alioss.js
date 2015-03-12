@@ -5,7 +5,6 @@ var traverse = require('../libs/traverse.js');
 var parseConfig = require('../libs/parse-config.js');
 var doUpload = require('../libs/upload.js');
 var howdo = require('howdo');
-var glob = require('glob');
 var ProgressBar = require('progress');
 
 var CWD = process.cwd();
