@@ -27,7 +27,7 @@ var json = {
 
 module.exports = function (dir) {
     var file = path.join(dir, './alioss.json');
-    fs.writeFile(file, JSON.stringify(json, null, 4), function (err) {
+    fs.writeFile(file, JSON.stringify(json, null, 2), function (err) {
         if(err){
             log('write file', file, 'error');
             log('write file', err.message, 'error');

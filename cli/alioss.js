@@ -4,6 +4,7 @@ var log = require('../libs/log.js');
 var traverse = require('../libs/traverse.js');
 var parseConfig = require('../libs/parse-config.js');
 var doUpload = require('../libs/upload.js');
+var path = require('path');
 var howdo = require('howdo');
 var ProgressBar = require('progress');
 
