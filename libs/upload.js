@@ -9,6 +9,7 @@
 var mime = require('ydr-util').mime;
 var request = require('ydr-util').request;
 var typeis = require('ydr-util').typeis;
+var dato = require('ydr-util').dato;
 var sign = require('./sign.js');
 var log = require('./log.js');
 var path = require('path');
@@ -33,6 +34,7 @@ module.exports = function upload(dir, options, file, callback) {
     var object = options.dest + path.relative(dir, file);
     var remote = 'http://' + options.bucket + '.' + options.host + (object ? object : '');
 
+    dato.extend(headers, options.headers);
     request.put({
         url: remote,
         headers: sign(options, 'PUT', object, headers),
