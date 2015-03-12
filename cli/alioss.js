@@ -68,6 +68,6 @@ function upload() {
         })
         .follow(function () {
             log('upload', 'upload all files', 'success');
-            log('past', (Date.now() - time) + 'ms', 'success');
+            log('past', (Date.now() - time) + ' ms', 'success');
         });
 }

@@ -9,10 +9,10 @@ npm install -g alioss
 
 
 ## api
-- alioss upload \[dir] 上传指定目录到阿里云 OSS
-- alioss version 输出版本信息
-- alioss json \[dir] 在指定目录生成 `alioss.json` 文件
-- alioss help 输出帮助信息
+- `alioss upload \[dir]` 上传指定目录到阿里云 OSS
+- `alioss version` 输出版本信息
+- `alioss json \[dir]` 在指定目录生成 `alioss.json` 模板文件
+- `alioss help` 输出帮助信息
 
 
 
@@ -31,13 +31,13 @@ npm install -g alioss
     // 缓存时间，默认 1 年
     "cacheControl": "max-age=315360000",
 
-    // 上传的文件列表，支持通配符
-    "upload": [
-        "./**/*.*"
-    ],
-
     // 待上传资源的源目录，相当于`alioss.json`所在的目录
     "src": "./",
+
+    // 上传的文件列表，支持通配符，相对于 src
+    "upload": [
+        "./**/*"
+    ],
 
     // 上传的 CDN 目录
     "dest": "/test/",
