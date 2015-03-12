@@ -14,8 +14,10 @@ var json = {
     accessKeySecret: 'your_accessKeySecret',
     bucket: 'your_bucket',
     host: 'oss-cn-hangzhou.aliyuncs.com',
-    // 缓存期限 1年
-    cacheControl: 'max-age=315360000',
+    // headers
+    headers: {
+        'cache-control': 'max-age=315360000'
+    },
     src: './',
     upload: ['./**/*.*'],
     dest: '/test/',

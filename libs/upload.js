@@ -14,7 +14,6 @@ var log = require('./log.js');
 var path = require('path');
 var xmlParse = require('xml2js').parseString;
 var REG_TITLE = /<title>([\s\S]*?)<\/title>/;
-var REG_SPLIT = /\/([^\/]*)/g;
 
 
 /**
