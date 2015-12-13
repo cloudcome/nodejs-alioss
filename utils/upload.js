@@ -45,6 +45,7 @@ module.exports = function (file, options, callback) {
         timeout: -1
     }, function (err, body, res) {
         if (err) {
+            err.file = file;
             return callback(err, body);
         }
 
@@ -53,12 +54,13 @@ module.exports = function (file, options, callback) {
         }
 
         xml2js.parseString(body, function (err, json) {
-            console.log();
             if (err) {
+                err.file = file;
                 return callback(err, body);
             }
 
             err = new Error(json.Error.Message || 'unknow error');
+            err.file = file;
             callback(err);
         });
     });

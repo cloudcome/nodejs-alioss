@@ -95,10 +95,13 @@ module.exports = function (options) {
         })
         .follow()
         .try(function () {
+            console.log();
             debug.success('upload files', willUploadLength);
             debug.success('upload success', 'past ' + (Date.now() - startTime) + 'ms');
         })
         .catch(function (err) {
+            console.log();
+            debug.error('upload file', err.file);
             debug.error('upload error', err.message);
         });
 };
