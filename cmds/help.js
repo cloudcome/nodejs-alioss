@@ -21,7 +21,7 @@ module.exports = function () {
     banner();
     console.log('1. Command');
     debug.success('   upload', 'upload files to qiniu', options);
-    debug.success('   init', 'initial `7niu.json`', options);
+    debug.success('   init', 'initial `alioss.json`', options);
     debug.success('   clear', 'clear upload cache', options);
     debug.success('   version', 'show version information', options);
     debug.success('   help', 'show help information', options);

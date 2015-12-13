@@ -10,11 +10,22 @@ npm install -g alioss
 
 
 ## api
-- `alioss upload \[dir]` 上传指定目录到阿里云 OSS
-- `alioss version` 输出版本信息
-- `alioss json \[dir]` 在指定目录生成 `alioss.json` 模板文件
-- `alioss help` 输出帮助信息
+```
+╔══════════════════════════════════════════════════════╗
+║   alioss@2.0.0                                       ║
+║   Ali cloud OSS command line                         ║
+╚══════════════════════════════════════════════════════╝
 
+1. Command
+   upload                 >> upload files to qiniu
+   init                   >> initial `alioss.json`
+   clear                  >> clear upload cache
+   version                >> show version information
+   help                   >> show help information
+
+2. Options
+   -d --dirname           >> specified a directory
+```
 
 
 ## alioss.json
@@ -44,7 +55,19 @@ npm install -g alioss
     "dest": "/test/",
 
     // 并行上传数量，默认10
-    "parallel": 10
+    "parallel": 10,
+    
+    // 缓存控制
+    "cacheControl": "public",
+    
+    // 缓存有效期
+    "expires": 31536000,
+    
+    // 默认文件类型
+    "contentType": "application/octect-stream",
+    
+    // 是否 https 访问
+    "https": true
 }
 ```
 
