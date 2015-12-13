@@ -14,12 +14,14 @@ var typeis = require('ydr-utils').typeis;
 var debug = require('ydr-utils').debug;
 
 var json = {
-    accessKeyId: 'your_access_key',
-    accessKeySecret: 'your_secret_key',
+    accessKeyId: 'your_accessKeyId',
+    accessKeySecret: 'your_accessKeySecret',
     bucket: 'your_bucket',
     host: 'oss-cn-hangzhou.aliyuncs.com',
     src: './',
-    upload: ['./**'],
+    upload: [
+        './**'
+    ],
     dest: '/test/',
     // 并行数量
     parallel: 10,

@@ -6,13 +6,13 @@
 
 'use strict';
 
-var mime = require('ydr-utils').mime;
+var fs = require('fs');
+var xml2js = require('xml2js');
+
 var request = require('ydr-utils').request;
 var path = require('ydr-utils').path;
 var aliOSS = require('ydr-utils').aliOSS;
-var debug = require('ydr-utils').debug;
 var typeis = require('ydr-utils').typeis;
-var fs = require('fs');
 
 var uploadURL = 'http://up.qiniu.com';
 var REG_START_END = /^\/|\/$/;
@@ -36,28 +36,16 @@ module.exports = function (file, options, callback) {
     };
 
     var relativePath = path.relative(options.srcDirname, file);
-    var destPath = path.join(options.destDirname, relativePath);
-    var destDirname = path.dirname(destPath);
-    var destBasename = path.basename(destPath);
-    var destExtname = path.extname(destPath);
-    var sign = aliOSS.signature('put', destPath);
+    //var destPath = path.join(options.destDirname, relativePath);
+    //var destDirname = path.dirname(destPath);
+    //var destBasename = path.basename(destPath);
+    //var destExtname = path.extname(destPath);
+    var sign = aliOSS.signature('put', relativePath);
 
-    options.destDirname = path.toURI(options.destDirname);
-    options.destDirname = options.destDirname.replace(REG_START_END, '');
-    options.destDirname = '/' + options.destDirname + '/';
-
-    var uploadKeyAndToken = qiniu.generateKeyAndToken({
-        bucket: options.bucket,
-        dirname: destDirname,
-        filename: destBasename,
-        accessKey: options.accessKey,
-        secretKey: options.secretKey,
-        mimeLimit: '*'
-    });
 
     request.post({
-        url: uploadURL,
-        form: fd,
+        url: sign.requestURL,
+        body: fs.createReadStream(file),
         timeout: -1
     }, function (err, body, res) {
         if (err) {
@@ -68,16 +56,13 @@ module.exports = function (file, options, callback) {
             return callback(err, body);
         }
 
-        var json;
-
-        try {
-            json = JSON.parse(body);
-        } catch (err) {
-            json = {
-                error: 'parse upload response error'
+        xml2js(body, function (err, json) {
+            if (err) {
+                return callback(err, body);
             }
-        }
 
-        callback(new Error(json.error));
+            console.log(json);
+            callback(new Error(json.error));
+        });
     });
 };
