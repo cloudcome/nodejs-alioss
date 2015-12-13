@@ -1,0 +1,16 @@
+{
+    "accessKeyId": "x",
+    "accessKeySecret": "y",
+    "bucket": "z",
+    "host": "oss-cn-hangzhou.aliyuncs.com",
+    "src": "./",
+    "upload": [
+        "./**"
+    ],
+    "dest": "/test/",
+    "parallel": 10,
+    "cacheControl": "public",
+    "expires": 31536000,
+    "contentType": "application/octect-stream",
+    "https": true
+}
