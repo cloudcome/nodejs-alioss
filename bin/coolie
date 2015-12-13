@@ -1,0 +1,37 @@
+#!/usr/bin/env node
+
+
+var command = require('ydr-utils').command;
+
+var cmdHelp = require('../cmds/help.js');
+var cmdVersion = require('../cmds/version.js');
+var cmdUpload = require('../cmds/upload.js');
+var cmdClear = require('../cmds/clear.js');
+var cmdInit = require('../cmds/init.js');
+
+
+command.alias({
+    d: 'dirname'
+});
+
+command
+    .if('help', cmdHelp)
+    .if('version', cmdVersion)
+    .if('upload', function (args) {
+        cmdUpload({
+            srcDirname: command.dirname(args, 'dirname')
+        });
+    })
+    .if('clear', function (args) {
+        cmdClear({
+            srcDirname: command.dirname(args, 'dirname')
+        });
+    })
+    .if('init', function (args) {
+        cmdInit({
+            srcDirname: command.dirname(args, 'dirname')
+        });
+    })
+    .else(cmdHelp);
+
+command.parse(process.argv);
