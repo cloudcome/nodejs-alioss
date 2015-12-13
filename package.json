@@ -1,6 +1,6 @@
 {
   "name": "alioss",
-  "version": "1.0.7",
+  "version": "2.0.0",
   "description": "阿里云 OSS 命令行",
   "scripts": {},
   "preferGlobal": true,
@@ -28,13 +28,11 @@
     "url": "https://github.com/cloudcome/nodejs-alioss/issues"
   },
   "dependencies": {
-    "colors": "^1.0.3",
-    "fs-extra": "^0.16.5",
-    "glob": "^5.0.1",
-    "howdo": "^1.1.4",
+    "fs-extra": "^0.26.2",
+    "glob": "^6.0.1",
+    "howdo": "^3.2.0",
     "progress": "^1.1.8",
-    "xml2js": "^0.4.5",
-    "ydr-util": "^2.0.2",
+    "xml2js": "^0.4.15",
     "ydr-utils": "^35.1.0"
   },
   "devDependencies": {},
