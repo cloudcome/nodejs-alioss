@@ -1,5 +1,6 @@
 # alioss
 阿里云 OSS 命令行。
+[![Build Status][travis-img]][travis-url] 
 
 
 ## install
@@ -69,3 +70,7 @@ npm install -g alioss
     dest: '/example.com/'
 }
 ```
+
+
+[travis-img]: https://travis-ci.org/cloudcome/nodejs-alioss.svg?branch=master
+[travis-url]: https://travis-ci.org/cloudcome/nodejs-alioss
