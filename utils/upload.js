@@ -40,6 +40,7 @@ module.exports = function (file, options, callback) {
 
     request.put({
         url: sign.requestURL,
+        headers: sign.headers,
         body: fs.createReadStream(file),
         timeout: -1
     }, function (err, body, res) {
@@ -47,17 +48,18 @@ module.exports = function (file, options, callback) {
             return callback(err, body);
         }
 
-        if (res.statusCode === 200) {
-            return callback(err, body);
+        if(res.statusCode === 200){
+            return callback();
         }
 
         xml2js.parseString(body, function (err, json) {
+            console.log();
             if (err) {
                 return callback(err, body);
             }
 
-            console.log(json);
-            callback(new Error(json.error));
+            err = new Error(json.Error.Message || 'unknow error');
+            callback(err);
         });
     });
 };
