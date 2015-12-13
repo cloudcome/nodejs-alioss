@@ -10,6 +10,7 @@
 
 var dato = require('ydr-utils').dato;
 var debug = require('ydr-utils').debug;
+var aliOSS = require('ydr-utils').aliOSS;
 var howdo = require('howdo');
 var Progress = require('progress');
 
@@ -18,12 +19,27 @@ var parseCache = require('../utils/parse-cache.js');
 var upload = require('../utils/upload.js');
 var banner = require('./banner.js');
 
+
 module.exports = function (options) {
     banner();
 
     // 1. parse config
     var configs = parseConfig({
         srcDirname: options.srcDirname
+    });
+    aliOSS.config({
+        accessKeyId: configs.accessKeyId,
+        accessKeySecret: configs.accessKeySecret,
+        bucket: configs.bucket,
+        host: configs.host,
+        cacheControl: configs.cacheControl,
+        // 1年，单位 秒
+        expires: configs.expires,
+        domain: '',
+        // 保存目录
+        dirname: configs.dest,
+        // 生成资源链接协议
+        https: configs.https
     });
 
     // 2. parse cache
@@ -53,10 +69,7 @@ module.exports = function (options) {
                 .each(group, function (j, file, done) {
                     upload(file, {
                         srcDirname: configs.srcDirname,
-                        destDirname: configs.destDirname,
-                        bucket: configs.bucket,
-                        accessKey: configs.accessKey,
-                        secretKey: configs.secretKey
+                        destDirname: configs.destDirname
                     }, function (err) {
                         if (err) {
                             return done(err);

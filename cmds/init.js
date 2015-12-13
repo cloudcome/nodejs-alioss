@@ -14,15 +14,19 @@ var typeis = require('ydr-utils').typeis;
 var debug = require('ydr-utils').debug;
 
 var json = {
-    access_key: 'your_access_key',
-    secret_key: 'your_secret_key',
+    accessKeyId: 'your_access_key',
+    accessKeySecret: 'your_secret_key',
     bucket: 'your_bucket',
+    host: 'oss-cn-hangzhou.aliyuncs.com',
     src: './',
     upload: ['./**'],
     dest: '/test/',
     // 并行数量
     parallel: 10,
-    contentType: 'application/octect-stream'
+    cacheControl: 'public',
+    expires: 31536000,
+    contentType: 'application/octect-stream',
+    https: true
 };
 var JSONFileName = 'alioss.json';
 

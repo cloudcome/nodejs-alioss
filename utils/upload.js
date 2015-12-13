@@ -9,11 +9,10 @@
 var mime = require('ydr-utils').mime;
 var request = require('ydr-utils').request;
 var path = require('ydr-utils').path;
-var qiniu = require('ydr-utils').qiniu;
+var aliOSS = require('ydr-utils').aliOSS;
 var debug = require('ydr-utils').debug;
 var typeis = require('ydr-utils').typeis;
 var fs = require('fs');
-var FormData = require('form-data');
 
 var uploadURL = 'http://up.qiniu.com';
 var REG_START_END = /^\/|\/$/;
@@ -36,15 +35,17 @@ module.exports = function (file, options, callback) {
         // ignore
     };
 
-    options.destDirname = path.toURI(options.destDirname);
-    options.destDirname = options.destDirname.replace(REG_START_END, '');
-    options.destDirname = '/' + options.destDirname + '/';
-
     var relativePath = path.relative(options.srcDirname, file);
     var destPath = path.join(options.destDirname, relativePath);
     var destDirname = path.dirname(destPath);
     var destBasename = path.basename(destPath);
     var destExtname = path.extname(destPath);
+    var sign = aliOSS.signature('put', destPath);
+
+    options.destDirname = path.toURI(options.destDirname);
+    options.destDirname = options.destDirname.replace(REG_START_END, '');
+    options.destDirname = '/' + options.destDirname + '/';
+
     var uploadKeyAndToken = qiniu.generateKeyAndToken({
         bucket: options.bucket,
         dirname: destDirname,
@@ -52,13 +53,6 @@ module.exports = function (file, options, callback) {
         accessKey: options.accessKey,
         secretKey: options.secretKey,
         mimeLimit: '*'
-    });
-    var fd = new FormData();
-
-    fd.append('key', uploadKeyAndToken.key);
-    fd.append('token', uploadKeyAndToken.token);
-    fd.append('file', fs.createReadStream(file), {
-        contentType: mime.get(destExtname)
     });
 
     request.post({
