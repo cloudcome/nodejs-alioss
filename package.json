@@ -5,7 +5,7 @@
   "scripts": {},
   "preferGlobal": true,
   "bin": {
-    "alioss": "./cli/alioss.js"
+    "alioss": "./bin/alioss"
   },
   "main": "index.js",
   "keywords": [

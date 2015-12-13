@@ -1,5 +1,5 @@
 /**
- * 文件描述
+ * clear cache
  * @author ydr.me
  * @create 2015-12-14 00:05
  */
@@ -11,8 +11,10 @@ var fse = require('fs-extra');
 var path = require('ydr-utils').path;
 var debug = require('ydr-utils').debug;
 
+var cacheName = 'alioss.cache.log';
+
 module.exports = function (options) {
-    var destCacheFile = path.join(options.srcDirname, '7niu.cache.log');
+    var destCacheFile = path.join(options.srcDirname, cacheName);
 
     try {
         fse.removeSync(destCacheFile);
