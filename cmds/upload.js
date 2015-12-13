@@ -37,7 +37,7 @@ module.exports = function (options) {
         expires: configs.expires,
         domain: '',
         // 保存目录
-        dirname: configs.dest,
+        dirname: configs.destDirname,
         // 生成资源链接协议
         https: configs.https
     });
