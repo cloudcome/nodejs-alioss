@@ -36,14 +36,9 @@ module.exports = function (file, options, callback) {
     };
 
     var relativePath = path.relative(options.srcDirname, file);
-    //var destPath = path.join(options.destDirname, relativePath);
-    //var destDirname = path.dirname(destPath);
-    //var destBasename = path.basename(destPath);
-    //var destExtname = path.extname(destPath);
     var sign = aliOSS.signature('put', relativePath);
 
-
-    request.post({
+    request.put({
         url: sign.requestURL,
         body: fs.createReadStream(file),
         timeout: -1
@@ -56,7 +51,7 @@ module.exports = function (file, options, callback) {
             return callback(err, body);
         }
 
-        xml2js(body, function (err, json) {
+        xml2js.parseString(body, function (err, json) {
             if (err) {
                 return callback(err, body);
             }

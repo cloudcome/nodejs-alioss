@@ -7,7 +7,6 @@
 
 'use strict';
 
-var glob = require('glob');
 var path = require('ydr-utils').path;
 var typeis = require('ydr-utils').typeis;
 var debug = require('ydr-utils').debug;
@@ -20,10 +19,11 @@ var debug = require('ydr-utils').debug;
  * @returns {Object}
  */
 module.exports = function (options) {
-    var dest7NiuJSONPath = path.join(options.srcDirname, '7niu.json');
+    var JSONFileName = 'alioss.json';
+    var dest7NiuJSONPath = path.join(options.srcDirname, JSONFileName);
 
     if (!typeis.file(dest7NiuJSONPath)) {
-        debug.error('7niu.json', path.toSystem(dest7NiuJSONPath) + ' is NOT a file');
+        debug.error(JSONFileName, path.toSystem(dest7NiuJSONPath) + ' is NOT a file');
         return process.exit(1);
     }
 
@@ -34,12 +34,17 @@ module.exports = function (options) {
     });
 
     return {
-        accessKey: json.access_key,
-        secretKey: json.secret_key,
+        accessKeyId: json.accessKeyId,
+        accessKeySecret: json.accessKeySecret,
         bucket: json.bucket,
+        host: json.host,
         srcDirname: srcDirname,
         uploadFiles: uploadFiles,
         destDirname: json.dest,
-        parallel: json.parallel
+        parallel: json.parallel,
+        cacheControl: json.cacheControl,
+        expires: json.expires,
+        contentType: json.contentType,
+        https: Boolean(json.https)
     };
 };

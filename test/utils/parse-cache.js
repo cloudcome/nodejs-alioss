@@ -13,7 +13,7 @@ var path = require('ydr-utils').path;
 var parseCache = require('../../utils/parse-cache.js');
 
 describe('utils/parse-cache.js', function () {
-    var file = path.join(__dirname, Math.random());
+    var file = path.join(__dirname, Math.random() + '');
 
     it('get', function () {
         var b = parseCache.get(file, {
