@@ -9,11 +9,14 @@
 
 
 var fse = require('fs-extra');
+
 var path = require('ydr-utils').path;
 var encryption = require('ydr-utils').encryption;
 var dato = require('ydr-utils').dato;
 var string = require('ydr-utils').string;
 var typeis = require('ydr-utils').typeis;
+
+var cacheFile = 'alioss.cache.log';
 
 /**
  * 读取文件内容
@@ -67,7 +70,7 @@ var matches = function (relative, version, data) {
  * @returns {Array}
  */
 exports.get = function (file, options) {
-    var cachePath = path.join(options.srcDirname, '7niu.cache.log');
+    var cachePath = path.join(options.srcDirname, cacheFile);
     var data = getData(cachePath);
     var files = typeis.array(file) ? file : [file];
     var ret = [];
@@ -90,7 +93,7 @@ exports.get = function (file, options) {
  * @param options.srcDirname {String} 原始目录
  */
 exports.set = function (file, options) {
-    var cachePath = path.join(options.srcDirname, '7niu.cache.log');
+    var cachePath = path.join(options.srcDirname, cacheFile);
     var data = getData(cachePath);
     var relative = path.relative(options.srcDirname, file);
     var version = encryption.etag(file);
