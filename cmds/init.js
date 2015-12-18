@@ -28,7 +28,15 @@ var json = {
     cacheControl: 'public',
     expires: 31536000,
     contentType: 'application/octect-stream',
-    https: true
+    https: true,
+    // 上传前图片压缩
+    image: {
+        minify: false,
+        // http://zhitu.isux.us/
+        processor: 'zhitu',
+        // 0.1 - 1
+        quality: 0.7
+    }
 };
 var JSONFileName = 'alioss.json';
 

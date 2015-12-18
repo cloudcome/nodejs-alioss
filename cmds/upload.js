@@ -67,10 +67,7 @@ module.exports = function (options) {
         .each(willUploadGroup, function (i, group, next) {
             howdo
                 .each(group, function (j, file, done) {
-                    upload(file, {
-                        srcDirname: configs.srcDirname,
-                        destDirname: configs.destDirname
-                    }, function (err) {
+                    upload(file, configs, function (err) {
                         if (err) {
                             return done(err);
                         }

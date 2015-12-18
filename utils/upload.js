@@ -24,9 +24,6 @@ var REG_START_END = /^\/|\/$/;
  * @param options {Object} 配置
  * @param options.srcDirname {String} 起始目录
  * @param options.destDirname {String} 目标目录
- * @param options.bucket {String} 七牛仓库
- * @param options.accessKey {String} ak
- * @param options.secretKey {String} sk
  * @param callback {Function} 上传回调
  * @returns {string}
  */
