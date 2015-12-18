@@ -43,7 +43,8 @@ module.exports = function (file, options, callback) {
             url: sign.requestURL,
             headers: sign.headers,
             body: stream,
-            timeout: -1
+            timeout: -1,
+            simulateBrowser: false
         }, function (err, body, res) {
             if (err) {
                 err.file = file;
